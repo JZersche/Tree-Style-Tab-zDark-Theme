@@ -1,0 +1,365 @@
+/* Show title of unread tabs with red and italic font */
+/*
+:root.sidebar tab-item.unread .label-content {
+  color: red !important;
+  font-style: italic !important;
+}
+*/
+
+/* Add private browsing indicator per tab */
+/*
+:root.sidebar tab-item.private-browsing tab-label:before {
+  content: "🕶";
+}
+*/
+
+
+:root {
+  --favicon-size: 17px;
+  --browser-tab-highlighter: #fff0;
+  --dark-tab-line: #fff0;
+}
+
+body {
+  /*counter-reset: tabs;*/
+}
+
+tab-item {
+  --tab-size: 20px !important;
+  height: var(--tab-size);
+  border-radius: 1px;
+  /*counter-increment: tabs;*/
+  /*content: "Section " counter(tabs) ". ";*/
+  border-bottom: 0 solid #222;
+}
+
+/* Counter Color */
+tab-item[data-current-uri] .extra-items-container.behind::after {
+    background: #FF00000;
+    color: #FFFFFF;
+    /*content: counter(vtabs)'';*/
+	pointer-events: none;
+    position: absolute;
+    bottom: 0.5em;
+    z-index: 1000;
+}
+
+
+.tab.last-active tab-label {
+  color: #8d8d8d;
+}
+
+tab-item tab-label {
+  flex-grow: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 12px !important;
+  letter-spacing: -0.5px;
+}
+
+tab-item,
+.after-tabs button {
+  margin-bottom: 0;
+}
+
+tab-item.pinned.last-row {
+  border-bottom-width: 1px;
+}
+
+.tab.contextual-identity-firefox-container-6 .contextual-identity-marker {
+  background-color: #fff;
+  margin-right: 3px;
+  border-radius: 25px;
+  height: 5px;
+  width: 5px !important;
+  margin-top: 2px;
+}
+
+tab-item:not(.pinned) {
+  padding-left: 0 !important;
+  border-left: 5px solid #0000 !important;
+}
+
+tab-item[data-current-uri^="https://www.facebook.com/"].tab.active
+{
+  background: #f00 !important;
+  background-repeat: no-repeat;
+  color: #fff;
+  background-position: 0 0;
+  background-size: auto 20px;
+  border-left: 8px ridge #09ff;
+}
+
+tab-item .background {
+  background: #0000;
+}
+
+tab-item[data-current-uri^="https://www.facebook.com/"].tab.active .label
+{
+  color: #3b5998;
+    color: #fff;
+
+}
+
+.tab.active .label {
+  font-weight: 700;
+  color: #fff;
+	
+}
+
+.tab:not(.pinned):not(.active) {
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: auto 20px;
+  color: #fff;
+}
+
+.tab.active:not(.pinned) {
+  padding-left: 8px !important;
+    background: #f00f!important;
+}
+
+.tab:not(.pinned) {
+  padding-left: 8px !important;
+}
+
+.tab.active:hover:not(.pinned) tab-label {
+  opacity: 1;
+  color: #aaa !important;
+}
+
+.tab:not(.pinned):not(.active):hover {
+  padding-left: 10px !important;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: auto 20px;
+  border-left: 5px solid #fff !important;
+}
+
+tab-item:not(.active):not(.bundled-active):not(.highlighted):hover
+  .highlighter::before,
+tab-item:not(.active):not(.bundled-active):not(.highlighted):not(.faviconized):hover
+  .highlighter::after {
+  background: #f000;
+}
+
+.tab.active:hover:not(.pinned) tab-label {
+  opacity: 1;
+  color: #aaa !important;
+}
+
+.newtab-button::after {
+  content: var(--tab-count-text);
+  pointer-events: none;
+  position: relative;
+  right: 0em;
+  top: 1px;
+  line-height: 10px;
+  font-size: 9px;
+  font-variant: small-caps;
+}
+
+
+/* Tab Counting */
+#tabbar {
+  counter-reset: vtabs; 
+}
+
+tab-item:not(.collapsed):not(.discarded) {
+
+}
+
+tab-item:not(.collapsed) {
+
+}
+
+tab-item:not(.discarded) {
+
+}
+
+tab-item {
+  counter-increment: vtabs;
+}
+
+tab-item .extra-items-container.behind {
+  z-index: unset !important;
+}
+
+
+/*
+    @keyframes tabAnimation {
+    0%   {color: #fff;}
+    25%  {color: #000;}
+    }
+*/
+
+tab-item .extra-items-container.behind::after {
+  /*animation-name: tabAnimation;
+       animation-iteration-count: infinite;
+       animation-duration: 1000ms;
+       */
+  background: #0000;
+  color: #ff0!important;
+  #content: counter(vtabs);
+  font-size: 10px;
+  left: 0px;
+  padding#FFFFFF
+  pointer-events: none;
+  position: absolute;
+  top: 0.9em;
+  z-index: 1000;
+}
+
+/*Drop Down Arrow*/
+tab-item tab-twisty {
+  position: relative;
+  z-index: 10000;
+  opacity: 0 !important;
+}
+
+tab-item {
+  background: linear-gradient(
+    to bottom,
+    #222 5% 50%,
+    #22222222 50% 100%
+  ) !important;
+}
+
+tab-item[data-current-uri^="https://github.com"]
+{background-color: #586f !important;background-image: none !important;border-bottom: 1px solid #fff}
+
+tab-item[data-current-uri^="https://forum.cfx.re"]
+{  background: linear-gradient(
+    to bottom,
+    #A0500F 5% 50%,
+    #A0500Fdd 50% 100%
+  ) !important;border-bottom: 1px solid #fff}
+
+tab-item[data-current-uri^="https://www.facebook.com/"]
+{
+  background: linear-gradient(
+    to bottom,
+    #3b5998 5% 50%,
+    #3b5998dd 50% 100%
+  ) !important;
+}
+
+tab-item[data-current-uri^="https://www.facebook.com/memories"]
+{
+  background: linear-gradient(
+    to bottom,
+    #6398C2 5% 50%,
+    #5888AFDD 50% 100%
+  ) !important;
+}
+
+tab-item[data-current-uri^="https://www.facebook.com/ancientoriginsweb"]
+{
+  background: linear-gradient(
+    to bottom,
+    #6C5D98 5% 50%,
+    #65538D 50% 100%
+  ) !important;
+}
+
+tab-item[data-current-uri^="https://www.facebook.com/javascript"]
+{
+  background: linear-gradient(
+    to bottom,
+    #938400 5% 50%,
+    #b7a400 50% 100%
+  ) !important;
+}
+
+tab-item[data-current-uri^="https://www.facebook.com/Nassim"]
+{
+  background: linear-gradient(
+    to bottom,
+    #5a3c84 5% 50%,
+    #561569 50% 100%
+  ) !important;
+}
+
+tab-item[data-current-uri^="https://www.facebook.com/TheResonanceProject"]
+{ background: linear-gradient( to bottom, #5a3c84 5% 50%, #561569 50% 100% ) !important; } tab-item[data-current-uri^="https://www.facebook.com/TheResonanceProject"].tab .label { color: #FFFFFF !important }
+
+tab-item[data-current-uri^="https://www.facebook.com/groups"]
+{
+  background: linear-gradient(
+    to bottom,
+    #1D1D1D 5% 50%,
+    #000000 50% 100%
+  ) !important;
+}
+
+tab-item[data-current-uri^="https://www.facebook.com/groups/autodeskmaya"]
+{
+  background: linear-gradient(
+    to bottom,
+    #5a0ba8 5% 100%,
+    #3a3a3a 50% 100%
+  ) !important;
+}
+
+tab-item[data-current-uri^="https://www.facebook.com/groups/FStorm"]
+{
+  background: linear-gradient(
+    to bottom,
+    #624941 5% 100%,
+    #3a3a3a 50% 100%
+  ) !important;
+}
+
+tab-item[data-current-uri^="https://www.facebook.com/groups/Blender"]
+{
+  background: linear-gradient(
+    to bottom,
+    #416244 5% 100%,
+    #3a3a3a 50% 100%
+  ) !important;
+}
+
+tab-item[data-current-uri^="https://www.facebook.com/photo"]
+{
+  background: linear-gradient(
+    to bottom,
+    #FFFFFF 5% 50%,
+    #D5D5D5 50% 100%
+  ) !important;
+}tab-item[data-current-uri^="https://www.facebook.com/photo"].tab .label
+{
+color:rgb(0,0,0);font-weight:500;
+}
+
+tab-item[data-current-uri^="https://www.facebook.com/photo"] .extra-items-container.behind::after {
+    background: #0000;
+    color: #000000;
+    /*content: counter(vtabs)'';*/
+    font-size: 10px;
+    left: 4px;
+    padding#FFFFFF pointer-events: none;
+    position: absolute;
+    bottom: 0.5em;
+    z-index: 1000;
+}
+
+tab-item[data-current-uri^="https://www.facebook.com/permalink"]
+{
+  background: linear-gradient(
+    to bottom,
+    #2e5d66 5% 50%,
+    #1a485e 50% 100%
+  ) !important;
+}
+
+tab-item[data-current-uri^="https://www.facebook.com/robertedwardgrant"]
+{ background: linear-gradient( to bottom, #83591A 5% 50%, #894610 50% 100% ) !important; } tab-item[data-current-uri^="https://www.facebook.com/robertedwardgrant"].tab .label { color: #FFFFFF !important }
+
+tab-item[data-current-uri^="https://www.gta5-mods.com/"]
+{
+  background: linear-gradient(
+    to bottom,
+    #2d6f31 5% 50%,
+    #23e25e99 50% 100%
+  ) !important;
+}
