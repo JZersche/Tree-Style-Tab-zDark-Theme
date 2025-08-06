@@ -159,6 +159,12 @@ tab-item:not(.active):not(.bundled-active):not(.highlighted):not(.faviconized):h
   font-variant: small-caps;
 }
 
+/* Removing this will hide the newtab button */
+.newtab-button {
+  --tab-count-text: "";
+}
+
+
 
 /* Tab Counting */
 #tabbar {
